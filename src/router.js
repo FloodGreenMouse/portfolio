@@ -22,6 +22,16 @@ export default new Router({
       component: () => import('./views/Projects.vue')
     },
     {
+      path: '/experience',
+      name: 'experience',
+      component: () => import('./views/Experience.vue')
+    },
+    {
+      path: '/skills',
+      name: 'skills',
+      component: () => import('./views/Skills.vue')
+    },
+    {
       path: '*',
       name: 'error',
       component: () => import('./views/404.vue')

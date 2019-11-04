@@ -26,10 +26,10 @@
     .col-md-12.col-4
       .content-section.flex.column
         .menu.flex.column.a-start
-          router-link(to="/contacts") Обо мне
-          router-link(to="/about") Skills
-          router-link(to="/about") Опыт
-          router-link(to="/projects") Мои проекты
+          router-link.default-link(to="/projects") ✏️Мои проекты
+          router-link.default-link(to="/skills") 🔧 Skills
+          router-link.default-link(to="/experience") 📝 Опыт
+          router-link.default-link(to="/contacts") 📇 Контакты
 </template>
 
 <script>
@@ -38,6 +38,7 @@ import iconMail from '../components/icons/mail'
 import iconTelegram from '../components/icons/telegram'
 
 export default {
+  name: 'home-page',
   components: {
     iconGithub,
     iconMail,
@@ -63,15 +64,7 @@ export default {
 
 <style lang="scss" scoped>
   .page.home {
-    padding: 20px 0;
-
-    .content-section {
-      background-color: $color-dark;
-      padding: 25px 30px;
-      margin: 0 20px;
-      border-radius: $border-radius;
-      box-shadow: 0 0 10px rgba(black, 0.3);
-    }
+    padding: 40px 0;
 
     .avatar {
       width: 150px;
@@ -101,36 +94,6 @@ export default {
           display: inline-flex;
           align-items: center;
           color: $color-white;
-        }
-      }
-    }
-
-    .menu {
-      a {
-        position: relative;
-        color: $color-white;
-        font-size: 32px;
-        line-height: 48px;
-        margin-bottom: 24px;
-        z-index: 1;
-        transition: $trs2;
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: -5px;
-          width: calc(100% + 10px);
-          height: 0;
-          background-color: $color-white;
-          transition: $trs2;
-          z-index: -1;
-          border-radius: $border-radius;
-        }
-        &:hover {
-          color: $color-dark;
-          &:after {
-            height: 100%;
-          }
         }
       }
     }

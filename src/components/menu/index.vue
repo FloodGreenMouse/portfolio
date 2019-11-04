@@ -1,13 +1,14 @@
 <template lang="pug">
   .menu-component
-    .container.flex.column.a-start
-      .menu-icon
-        iconMenu
-      router-link(to="/") Главная
-      router-link(to="/contacts") Обо мне
-      router-link(to="/about") Skills
-      router-link(to="/about") Опыт
-      router-link(to="/projects") Мои проекты
+    transition(name="fade")
+      .container.flex.column.a-start(v-if="!isHomePage")
+        .menu-icon
+          iconMenu
+        router-link(to="/") Главная
+        router-link(to="/contacts") Обо мне
+        router-link(to="/about") Skills
+        router-link(to="/about") Опыт
+        router-link(to="/projects") Мои проекты
 </template>
 
 <script>
@@ -16,6 +17,20 @@ import iconMenu from '../icons/menu'
 export default {
   components: {
     iconMenu
+  },
+  data () {
+    return {
+      isHomePage: false
+    }
+  },
+  watch: {
+    '$route' () {
+      this.isHomePage = this.$route.name.includes('home')
+      return this.isHomePage
+    }
+  },
+  mounted () {
+    this.isHomePage = this.$route.name.includes('home')
   }
 }
 </script>

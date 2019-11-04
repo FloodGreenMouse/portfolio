@@ -2,6 +2,7 @@
   #app
     transition(name="loader")
       vLoader(v-if="showLoader")
+    vMenu
     vue-page-transition(name="page" mode="out-in")
       router-view.router-view(:class="{'first-load': loaded}")
 </template>
@@ -11,12 +12,14 @@ import Vue from 'vue'
 import { mapState } from 'vuex'
 import VuePageTransition from 'vue-page-transition'
 import vLoader from './components/loader'
+import vMenu from './components/menu'
 
 Vue.use(VuePageTransition)
 
 export default {
   components: {
-    vLoader
+    vLoader,
+    vMenu
   },
   data () {
     return {

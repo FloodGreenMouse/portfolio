@@ -1,8 +1,7 @@
 <template lang="pug">
   .page.projects
-    vMenu
     .flex.wrap
-      .project.col-xs-12.col-md-4.col-3(
+      .project.col-xs-12.col-md-4.col-4(
         v-for="(project, i) in projects"
         :key="i"
         :style="{'animation-delay': `0.${i + 1}s`}")
@@ -11,47 +10,50 @@
 
 <script>
 import projectCard from '../components/project-card'
-import vMenu from '../components/menu'
 
 export default {
   components: {
-    projectCard,
-    vMenu
+    projectCard
   },
   data () {
     return {
+      name: 'projects-page',
       projects: [
         {
           title: 'title',
-          description: 'description'
+          description: 'description',
+          demoLink: '',
+          githubLink: ''
         },
         {
           title: 'title',
-          description: 'description'
+          description: 'description',
+          demoLink: '',
+          githubLink: ''
         },
         {
           title: 'title',
-          description: 'description'
+          description: 'description',
+          demoLink: '',
+          githubLink: ''
         },
         {
           title: 'title',
-          description: 'description'
+          description: 'description',
+          demoLink: '',
+          githubLink: ''
         },
         {
           title: 'title',
-          description: 'description'
+          description: 'description',
+          demoLink: '',
+          githubLink: ''
         },
         {
           title: 'title',
-          description: 'description'
-        },
-        {
-          title: 'title',
-          description: 'description'
-        },
-        {
-          title: 'title',
-          description: 'description'
+          description: 'description',
+          demoLink: '',
+          githubLink: ''
         }
       ]
     }
