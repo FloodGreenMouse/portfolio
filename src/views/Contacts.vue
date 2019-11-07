@@ -1,10 +1,11 @@
 <template lang="pug">
   .page.contacts
+    h1.t-center 📇 Контакты
     .flex.wrap.j-center
       .col-md-12.col-5
         .content-section.flex.column.center
           .avatar
-            img(src="../static/img/avatar.jpg")
+            img(src="/img/avatar.jpg")
           .text-block.t-center
             .text
               span Сергей Платицин
@@ -23,13 +24,6 @@
               a.link(href="https://t.me/GreenMouse")
                 iconTelegram
                 | Telegram
-      .col-md-12.col-4
-        .content-section.flex.column
-          .menu.flex.column.a-start
-            router-link.default-link(to="/projects") ✏️Мои проекты
-            router-link.default-link(to="/skills") 🔧 Skills
-            router-link.default-link(to="/experience") 📝 Опыт
-            router-link.default-link(to="/contacts") 📇 Контакты
 </template>
 
 <script>
@@ -64,8 +58,7 @@ export default {
 
 <style lang="scss" scoped>
   .page.contacts {
-    padding: 40px 0;
-
+    padding: 0 0 40px 0;
     .avatar {
       width: 150px;
       height: 150px;

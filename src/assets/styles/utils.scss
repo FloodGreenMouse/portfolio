@@ -23,6 +23,12 @@
   &.j-between {
     justify-content: space-between;
   }
+  &.j-evenly {
+    justify-content: space-evenly;
+  }
+  &.j-around {
+    justify-content: space-around;
+  }
   &.j-end {
     justify-content: flex-end;
   }
@@ -177,6 +183,14 @@
     .mobile {
       display: block;
     }
+    .col {
+      &-sm-4 {
+        width: calc(100% / 4 * 4);
+      }
+      &-sm-8 {
+        width: 100%;
+      }
+    }
   }
   @include xs {
     .col {
@@ -211,6 +225,14 @@
 }
 
 $border-radius: 3px;
+
+.t-right {
+  text-align: right;
+}
+
+.t-left {
+  text-align: left;
+}
 
 .t-center {
   text-align: center;

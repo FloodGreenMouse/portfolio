@@ -1,36 +1,60 @@
 <template lang="pug">
   .menu-component
     transition(name="fade")
-      .container.flex.column.a-start(v-if="!isHomePage")
-        .menu-icon
-          iconMenu
-        router-link(to="/") Главная
-        router-link(to="/contacts") Обо мне
-        router-link(to="/about") Skills
-        router-link(to="/about") Опыт
-        router-link(to="/projects") Мои проекты
+      .container(v-show="!isHomePage" @click="toggleMenu" ref="menu")
+        transition-group(name="menu" mode="out-in")
+          .menu-icon(v-show="!showMenu" :key="1")
+            iconMenu
+          .menu-icon(v-show="showMenu" :key="2")
+            iconClose
+        transition(name="fastFade")
+          .menu.flex.column.a-start(v-if="showMenu")
+            router-link(to="/") Главная
+            router-link(to="/skills") Skills
+            router-link(to="/experience") Опыт
+            router-link(to="/projects") Мои проекты
+            router-link(to="/contacts") Контакты
 </template>
 
 <script>
 import iconMenu from '../icons/menu'
+import iconClose from '../icons/close'
 
 export default {
   components: {
-    iconMenu
+    iconMenu,
+    iconClose
   },
   data () {
     return {
-      isHomePage: false
+      isHomePage: false,
+      showMenu: false
     }
   },
   watch: {
     '$route' () {
+      this.showMenu = false
       this.isHomePage = this.$route.name.includes('home')
-      return this.isHomePage
+    }
+  },
+  methods: {
+    toggleMenu () {
+      this.showMenu ? this.showMenu = false : this.showMenu = true
     }
   },
   mounted () {
-    this.isHomePage = this.$route.name.includes('home')
+    document.addEventListener('click', e => {
+      if (!this.$refs.menu.contains(e.target)) {
+        this.showMenu = false
+      }
+    })
+    if (this.$route.name === null) {
+      this.isHomePage = false
+    } else {
+      this.isHomePage = this.$route.name.includes('home')
+    }
+  },
+  beforeDestroy () {
   }
 }
 </script>
@@ -57,60 +81,72 @@ export default {
     height: 50px;
     width: 100%;
     .container {
-      padding: 0;
-      position: fixed;
-      right: 10px;
+      position: absolute;
       top: 10px;
+      right: 10px;
+      padding: 0;
       background-color: $color-dark;
       width: 45px;
       height: 45px;
       border: 1px solid rgba($color-white, 0.1);
       border-radius: $border-radius;
       z-index: 20;
-      transition: all ease 0.3s, border-radius 0.2s linear;
+      cursor: pointer;
       &:hover {
-        padding: 15px 25px;
-        width: 150px;
-        height: 150px;
-        box-shadow: 0 0 5px rgba(black, 0.5);
-        a {
-          transition: $trs5;
-          opacity: 1;
-        }
-        .menu-icon {
-          animation: menu-icon 0.2s ease 1 forwards;
+        .menu-icon svg {
+          transform: scale(1.2);
         }
       }
-      a {
-        display: inline;
-        position: relative;
-        color: $color-white;
-        text-decoration: none;
-        font-size: 16px;
-        white-space: nowrap;
-        opacity: 0;
-        margin-bottom: 10px;
-        transition: $trs2;
+      .menu {
+        padding: 15px;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        margin: auto;
+        background-color: $color-dark;
+        border: 1px solid rgba($color-white, 0.1);
+        border-radius: $border-radius;
+        box-shadow: 4px 4px 10px rgba(black, 0.5), -4px 4px 10px rgba(black, 0.5);
+        cursor: default;
         &:after {
           content: '';
+          top: -20px;
+          right: 10px;
           position: absolute;
-          bottom: 0;
-          left: -5px;
-          width: calc(100% + 10px);
-          height: 0;
-          background-color: $color-white;
-          transition: $trs2;
-          z-index: -1;
-          border-radius: $border-radius;
+          border: 10px solid;
+          border-color: transparent transparent $color-dark transparent;
         }
-        &:hover {
-          color: $color-dark;
+        a {
+          position: relative;
+          display: inline;
+          color: $color-white;
+          text-decoration: none;
+          font-size: 16px;
+          white-space: nowrap;
+          margin-bottom: 10px;
+          transition: $trs2;
+          user-select: none;
+          z-index: 1;
           &:after {
-            height: 100%;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: 0;
+            background-color: $color-white;
+            transition: $trs2;
+            z-index: -1;
+            border-radius: $border-radius;
+          }
+          &:hover {
+            color: $color-dark;
+            &:after {
+              height: 100%;
+            }
           }
         }
       }
-      overflow: hidden;
       .menu-icon {
         position: absolute;
         width: 24px;
@@ -120,6 +156,10 @@ export default {
         left: 0;
         right: 0;
         margin: auto;
+        svg {
+          transition: $trs3;
+          transform: scale(1);
+        }
       }
     }
     @keyframes menu-icon {

@@ -11,8 +11,7 @@
       .tool
         iconSass
   .body
-    .image.flex.center
-      img(src="@/static/img/project.png" title="Project preview")
+    .image(:style="{'background-image': `url(/img/project.png)`}" title="Project preview")
     .description.flex
       span.text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illo modi saepe. Illum impedit minima nostrum quia ratione. Autem consequatur cumque dolore maxime neque nostrum quasi quia quis repellendus voluptatum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illo modi saepe. Illum impedit minima nostrum quia ratione. Autem consequatur cumque dolore maxime neque nostrum quasi quia quis repellendus voluptatum?
   .footer
@@ -41,6 +40,11 @@ export default {
     project: {
       type: Object,
       default: () => {}
+    }
+  },
+  data () {
+    return {
+      image: '/img/project.png'
     }
   }
 }
@@ -73,6 +77,7 @@ export default {
     height: 300px;
     background-color: $color-dark;
     margin: 20px;
+    margin-top: 10px;
     transition: $trs3;
     border: 1px solid rgba($color-white, 0.1);
     transform: translateY(0);
@@ -118,9 +123,9 @@ export default {
       .image {
         width: 100%;
         height: 100%;
-        img {
-          width: 100%;
-        }
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
       }
       .description {
         position: absolute;
@@ -191,6 +196,24 @@ export default {
             }
           }
         }
+      }
+    }
+  }
+
+  @include sm {
+    .project-card-component {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 10px rgba(black, 0.5), -4px 4px 10px rgba(black, 0.5);
+      .body {
+        flex: 0 0 calc(100% - 80px);
+        .description {
+          opacity: 1;
+        }
+      }
+      .footer .buttons {
+        height: 100%;
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
       }
     }
   }

@@ -18,11 +18,12 @@ $trs5: all ease 0.5s;
   opacity: 0;
 }
 
-.fadeFast-enter-active, .fadeFast-leave-active {
-  transition: opacity .2s ease;
+.fastFade-enter-active, .fastFade-leave-active {
+  transition: opacity .2s ease, transform 0.3s ease;
 }
 
-.fadeFast-enter, .fadeFast-leave-to {
+.fastFade-enter, .fastFade-leave-to {
+  transform: translateY(10px);
   opacity: 0;
 }
 
@@ -52,5 +53,14 @@ $trs5: all ease 0.5s;
 }
 
 .page-enter, .page-leave-to {
+  opacity: 0;
+}
+
+.menu-enter-active, .menu-leave-active {
+  transition: opacity .3s ease, transform 0.3s ease;
+}
+
+.menu-enter, .menu-leave-to {
+  transform: rotate(-180deg);
   opacity: 0;
 }
