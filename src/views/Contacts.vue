@@ -24,19 +24,25 @@
               a.link(href="https://t.me/GreenMouse")
                 iconTelegram
                 | Telegram
+            .text
+              a.link.phone(href="tel:+79135700981")
+                iconPhone
+                | +7 (913) 570-09-81
 </template>
 
 <script>
 import iconGithub from '../components/icons/github'
 import iconMail from '../components/icons/mail'
 import iconTelegram from '../components/icons/telegram'
+import iconPhone from '../components/icons/phone'
 
 export default {
   name: 'home-page',
   components: {
     iconGithub,
     iconMail,
-    iconTelegram
+    iconTelegram,
+    iconPhone
   }
 }
 </script>
@@ -50,6 +56,12 @@ export default {
           width: 24px;
           height: 24px;
           margin-right: 5px;
+        }
+        .link.phone {
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }

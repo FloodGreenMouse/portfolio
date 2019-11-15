@@ -7,8 +7,8 @@
         .text-block.t-center
           .text
             p Привет! 👋
-            p Меня зовут Сергей и&nbsp;я&nbsp;фронтенд-разработчик
-            p Я&nbsp;обожаю Vue, котиков и&nbsp;тёмные темы
+            p Меня зовут Сергей и&nbsp;я&nbsp;фронтенд-разработчик.
+            p Я&nbsp;обожаю Vue, котиков и&nbsp;тёмные темы.
     .container.menu-container.col-sm-8.col-md-8.col-4
       .content-section.flex.column
         .menu.flex.column.a-start

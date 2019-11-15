@@ -27,7 +27,7 @@
           .skill.col-sm-3.col-2
             iconJs
             span JS ES6
-        .flex
+        .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
           .skill.col-sm-2.col-2
@@ -45,13 +45,13 @@
               | SASS
               br
               | SCSS
-        .flex
+        .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
           .skill.col-sm-2.col-1
             iconGulp
             span Gulp
-        .flex
+        .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
           .skill.col-sm-3.col-2
@@ -60,13 +60,13 @@
           .skill.col-sm-3.col-2
             iconYarn
             span Yarn
-        .flex
+        .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
           .skill.col-sm-3.col-3
             iconBootstrap
             span Bootstrap
-        .flex
+        .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
           .skill.col-sm-3.col-3
@@ -75,7 +75,7 @@
           .skill.col-sm-3.col-3
             iconZeplin
             span Zeplin
-        .flex
+        .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
           .skill.col-sm-3.col-3
@@ -84,49 +84,6 @@
           .skill.col-sm-3.col-3
             iconWebstorm
             span Webstorm
-      //div
-        .container.col-3
-          .skill
-            iconHtml
-        .container.col-3
-          .skill
-            iconVue
-        .container.col-3
-          .skill
-            iconSass
-        .container.col-3
-          .skill
-            iconGulp
-        .container.col-3
-          .skill
-            iconCSS
-        .container.col-3
-          .skill
-            iconNuxt
-        .container.col-3
-          .skill
-            iconJs
-        .container.col-3
-          .skill
-            iconNpm
-        .container.col-3
-          .skill
-            iconYarn
-        .container.col-3
-          .skill
-            iconPug
-        .container.col-3
-          .skill
-            iconFigma
-        .container.col-3
-          .skill
-            iconZeplin
-        .container.col-3
-          .skill
-            iconPhpstorm
-        .container.col-3
-          .skill
-            iconWebstorm
 </template>
 
 <script>
