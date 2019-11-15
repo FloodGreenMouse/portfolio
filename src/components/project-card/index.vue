@@ -2,39 +2,51 @@
 .project-card-component.flex.column.j-between
   .head.flex.center.j-between
     .title
-      span Заголовок
+      span {{ project.title }}
     .tools.flex
-      .tool
-        iconVue
-      .tool
-        iconHtml
-      .tool
-        iconSass
+      .tool(v-for="(tag, i) in project.tags" :key="i")
+        component(:is="`icon${capitalize(tag)}`")
   .body
-    .image(:style="{'background-image': `url(/img/project.png)`}" title="Project preview")
+    .image(:style="{'background-image': `url(${project.preview})`}" title="Project preview")
     .description.flex
-      span.text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illo modi saepe. Illum impedit minima nostrum quia ratione. Autem consequatur cumque dolore maxime neque nostrum quasi quia quis repellendus voluptatum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illo modi saepe. Illum impedit minima nostrum quia ratione. Autem consequatur cumque dolore maxime neque nostrum quasi quia quis repellendus voluptatum?
+      span.text {{ project.description }}
   .footer
-    .buttons.flex.j-between.a-center
-      a.demo(href="#") Демо
-      a.github(href="#")
+    .buttons.flex.j-between.a-center(v-if="!project.inDevelopment")
+      a.demo(v-if="project.demoLink.length"
+        :href="project.demoLink"
+        target="_blank") Демо
+      div(v-else)
+      a.github(v-if="project.githubLink.length"
+        :href="project.githubLink"
+        target="_blank")
         span.title Код на GitHub
         iconGithub
+    .in-development.flex.j-center(v-else)
+      span В разработке
 </template>
 
 <script>
-import iconGithub from '../icons/github'
-import iconVue from '../icons/vue'
-import iconHtml from '../icons/html'
-import iconSass from '../icons/sass'
+import tags from './tags'
+
+const icons = []
+
+tags.forEach(tag => {
+  let icon = null
+  try {
+    icon = require(`../icons/${tag}`).default
+  } catch (e) {
+    icon = {
+      template: '',
+      render: () => ''
+    }
+  }
+  icons[`icon${tag.charAt(0).toUpperCase() + tag.slice(1)}`] = icon
+})
 
 export default {
   name: 'project-card-component',
   components: {
-    iconGithub,
-    iconVue,
-    iconHtml,
-    iconSass
+    ...icons
   },
   props: {
     project: {
@@ -42,9 +54,9 @@ export default {
       default: () => {}
     }
   },
-  data () {
-    return {
-      image: '/img/project.png'
+  methods: {
+    capitalize (tag) {
+      return tag.charAt(0).toUpperCase() + tag.slice(1)
     }
   }
 }
@@ -91,10 +103,15 @@ export default {
           opacity: 1;
         }
       }
-      .footer .buttons {
-        height: 100%;
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
+      .footer {
+        .in-development {
+          opacity: 1;
+        }
+        .buttons {
+          height: 100%;
+          opacity: 1;
+          transform: translateY(0) rotateX(0);
+        }
       }
     }
     .head {
@@ -152,6 +169,11 @@ export default {
       }
     }
     .footer {
+      .in-development {
+        transition: $trs3;
+        text-transform: uppercase;
+        opacity: 0;
+      }
       .buttons {
         opacity: 0;
         height: 0;
@@ -210,10 +232,15 @@ export default {
           opacity: 1;
         }
       }
-      .footer .buttons {
-        height: 100%;
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
+      .footer {
+        .in-development {
+          opacity: 1;
+        }
+        .buttons {
+          height: 100%;
+          opacity: 1;
+          transform: translateY(0) rotateX(0);
+        }
       }
     }
   }

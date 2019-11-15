@@ -12,10 +12,10 @@
     .container.menu-container.col-sm-8.col-md-8.col-4
       .content-section.flex.column
         .menu.flex.column.a-start
-          router-link.default-link(to="/projects") ✏️Мои проекты
-          router-link.default-link(to="/skills") 🔧 Skills
-          router-link.default-link(to="/experience") 📝 Опыт
-          router-link.default-link(to="/contacts") 📇 Контакты
+          router-link.default-link(to="/projects") ✏️&nbsp;Мои проекты
+          router-link.default-link(to="/skills") 🔧 &nbsp;Skills
+          router-link.default-link(to="/experience") 📝 &nbsp;Опыт
+          router-link.default-link(to="/contacts") 📇 &nbsp;Контакты
 </template>
 
 <script>
