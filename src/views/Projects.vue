@@ -56,9 +56,9 @@ export default {
           title: 'Заметки',
           description: 'Приложение для создания/редактирования заметок',
           preview: '/img/projects/notes.png',
-          inDevelopment: true,
-          demoLink: '',
-          githubLink: '',
+          inDevelopment: false,
+          demoLink: 'https://note-keeper-demo.firebaseapp.com/',
+          githubLink: 'https://github.com/FloodGreenMouse/notes',
           tags: ['vue', 'pug', 'sass', 'html']
         }
       ],
