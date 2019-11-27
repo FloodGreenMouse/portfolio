@@ -1,7 +1,7 @@
 <template lang="pug">
-.page.home
-  .flex.wrap.j-center
-    .container.col-sm-8.col-md-8.col-5
+.page.home.flex.j-center
+  .flex.wrap.a-start.j-center
+    .container.col-sm-8.col-md-8.col-6
       .content-section.flex.column.center
         .avatar
         .text-block.t-center
@@ -9,7 +9,7 @@
             p Привет! 👋
             p Меня зовут Сергей и&nbsp;я&nbsp;фронтенд-разработчик.
             p Я&nbsp;обожаю Vue, котиков и&nbsp;тёмные темы.
-    .container.menu-container.col-sm-8.col-md-8.col-4
+    .container.menu-container.col-sm-8.col-md-8.col-6
       .content-section.flex.column
         .menu.flex.column.a-start
           router-link.default-link(to="/projects") ✏️&nbsp;Мои проекты
@@ -50,7 +50,8 @@ export default {
 
 <style lang="scss" scoped>
   .page.home {
-
+    height: calc(100vh - 60px);
+    align-items: center;
     .avatar {
       max-width: 350px;
       width: 100%;
@@ -67,19 +68,16 @@ export default {
       margin-bottom: 25px;
     }
 
-    .container {
-      margin: 20px;
-      &.menu-container {
+    .container.menu-container {
         max-height: 350px;
         height: auto;
-      }
     }
   }
 
   @include md {
     .page.home {
       padding: 0 0 20px 0;
-
+      align-items: flex-start;
       .container {
         margin: 10px;
       }

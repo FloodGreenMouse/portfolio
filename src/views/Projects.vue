@@ -54,7 +54,7 @@ export default {
         },
         {
           title: 'Заметки',
-          description: 'Приложение для создания/редактирования заметок',
+          description: 'Приложение для создания/редактирования заметок \n[UPDATE] Добавлена возможность перетаскивать заметки в корзину',
           preview: '/img/projects/notes.png',
           inDevelopment: false,
           demoLink: 'https://note-keeper-demo.firebaseapp.com/',
