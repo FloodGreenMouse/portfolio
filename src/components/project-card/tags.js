@@ -8,7 +8,8 @@ const tags = [
   'js',
   'gulp',
   'bootstrap',
-  'github'
+  'github',
+  'vuetify'
 ]
 
 export default tags

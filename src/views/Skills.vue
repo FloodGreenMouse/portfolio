@@ -16,30 +16,36 @@
           .skill.col-3
             iconSass
       .content-section.col-md-12.col-7
+        h2.t-center На данный момент осваиваю:
+        .flex.wrap.j-evenly.a-end
+          vSkill
+            iconVuetify
+            span Vuetify
+      .content-section.col-md-12.col-7
         h2.t-center Знаю и успешно применяю
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-3.col-2
+          vSkill
             iconVue
             span Vue.js
-          .skill.col-sm-3.col-2
+          vSkill
             iconNuxt
             span Nuxt.js
-          .skill.col-sm-3.col-2
+          vSkill
             iconJs
             span JS ES6
         .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-2.col-2
+          vSkill
             iconHtml
             span HTML5
-          .skill.col-sm-2.col-2
+          vSkill
             iconPug
             span Pug
-          .skill.col-sm-2.col-2
+          vSkill
             iconCSS
             span CSS3
-          .skill.col-sm-2.col-2
+          vSkill
             iconSass
             span
               | SASS
@@ -48,40 +54,40 @@
         .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-2.col-1
+          vSkill
             iconGulp
             span Gulp
         .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-3.col-2
+          vSkill
             iconNpm
             span NPM
-          .skill.col-sm-3.col-2
+          vSkill
             iconYarn
             span Yarn
         .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-3.col-3
+          vSkill
             iconBootstrap
             span Bootstrap
         .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-3.col-3
+          vSkill
             iconFigma
             span Figma
-          .skill.col-sm-3.col-3
+          vSkill
             iconZeplin
             span Zeplin
         .flex.center
           hr.col-12
         .flex.wrap.j-evenly.a-end
-          .skill.col-sm-3.col-3
+          vSkill
             iconPhpstorm
             span PhpStorm
-          .skill.col-sm-3.col-3
+          vSkill
             iconWebstorm
             span Webstorm
 </template>
@@ -102,6 +108,8 @@ import iconZeplin from '../components/icons/zeplin'
 import iconPhpstorm from '../components/icons/phpstorm'
 import iconWebstorm from '../components/icons/webstorm'
 import iconBootstrap from '../components/icons/bootstrap'
+import iconVuetify from '../components/icons/vuetify'
+import vSkill from '../components/skill'
 
 export default {
   name: 'skill-page',
@@ -120,7 +128,9 @@ export default {
     iconZeplin,
     iconPhpstorm,
     iconWebstorm,
-    iconBootstrap
+    iconBootstrap,
+    iconVuetify,
+    vSkill
   }
 }
 </script>

@@ -45,7 +45,7 @@ export default {
       frontendProjects: [
         {
           title: 'Админ-панель',
-          description: 'Приложение для администрирования клиентской части',
+          description: 'Приложение для администрирования клиентской части \n \nОписание: приложение для создания контента. \nНа данный момент уже имеется возможность создания, редактирования и удаления разделов и их контента. \n\n[UPDATE] Добавлена возможность загрузки титульного изображения для категории.',
           preview: '/img/projects/admin_panel.png',
           inDevelopment: true,
           demoLink: '',
@@ -54,7 +54,7 @@ export default {
         },
         {
           title: 'Заметки',
-          description: 'Приложение для создания/редактирования заметок \n[UPDATE] Добавлена возможность перетаскивать заметки в корзину',
+          description: 'Приложение для создания/редактирования заметок \n\n[UPDATE] Добавлена возможность перетаскивать заметки в корзину',
           preview: '/img/projects/notes.png',
           inDevelopment: false,
           demoLink: 'https://note-keeper-demo.firebaseapp.com/',
@@ -66,7 +66,7 @@ export default {
       otherProjects: [
         {
           title: 'Start HTML5 template',
-          description: 'Start HTML5 template with Bootstrap 4 (basic/grid only), Semantic UI, Normalize.css, SASS and Gulp (browserSync, autoprefixer, minify, clean-css, imagemin, etc.).',
+          description: 'Стартовый шаблон для верстки, включающий в себя: Bootstrap 4 (basic/grid only), Semantic UI, Normalize.css, SASS and Gulp (browserSync, autoprefixer, minify, clean-css, imagemin, etc.).',
           preview: '/img/projects/gulp.png',
           inDevelopment: false,
           demoLink: '',
