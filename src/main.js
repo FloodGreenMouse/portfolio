@@ -2,8 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VueYandexMetrika from './plugins/yandex-metrika'
 
 Vue.config.productionTip = false
+
+Vue.use(VueYandexMetrika, {
+  id: 65476618,
+  router
+})
 
 new Vue({
   router,
